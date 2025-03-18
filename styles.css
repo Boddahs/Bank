@@ -25,22 +25,48 @@ body{
     background: var(--container-color);
     width: clamp( 25rem, 95vw , 1080px);
     border-radius: 1px;
-    padding: 20px;
+    padding: 30px;
     height:auto;
     display: grid;
     grid-template-columns: 0.8fr 2fr 0.8fr;
     grid-template-rows: 50px 1fr 1fr;
     grid-template-areas: 
-        "aside-l header header"
+        "aside-l header aside-r"
         "aside-l main aside-r"
         "aside-l footer aside-r";
         height: 100vh;
 }
+/*Trabajamos en el header principal*/
 .container__header{
-    border: 1px solid var(--border-font-color);
     grid-area: header;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid var(--border-font-color);
+    width: fit-content;
+    color: var(--border-font-color);
+    padding: 10px;
+}
+.list__box-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    font-size: clamp(0.6rem,1.4vw,.9rem);
+}
+.list__box-2 .list__item{
+    padding-top: 10px;
+    border: none;
+    outline: display; /*se puede mejorar con :after*/
+    transition: color 0.3s ease-in-out;
+}
+.list__box-2 .list__item:hover{
+    border-top: 1px solid var(--font-color);
+    color: var(--font-color);
+    border-bottom: 1px solid transparent;
+}
 
-} 
 /*------------------------------------------*/
 /*trbajamos en el aside-L*/
 .container__aside-left{
@@ -50,7 +76,6 @@ body{
     gap: 30px;
     min-width: 120px;
     letter-spacing: 0.5px;
-    border: 1px solid var(--border-font-color);
     grid-area: aside-l;
     padding: 10px;
 }
@@ -72,7 +97,7 @@ h2>span{
     justify-content: start;
     align-items: center;
     gap: 10px;
-    padding-bottom: 8px;
+    padding-bottom: 4.5px;
     border-bottom: 1px solid var(--border-font-color);
     max-width: 110px;
 }
@@ -81,7 +106,7 @@ h2>span{
     color: var(--border-font-color);
     font-size: 0.8rem;
 }
-.list  ul  li{
+.list__item{
     list-style: none;
     cursor: pointer;
     width: fit-content;
@@ -111,7 +136,7 @@ li>i{
 }
 .title-2{
     color: var(--font-color);
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     position: relative;
     border-bottom: 1px solid var(--border-font-color);
     padding-bottom: 14px;
@@ -120,7 +145,7 @@ li>i{
     content: "\f1f9";
     width: 20px;
     font-family: "Font Awesome 6 Free";
-    font-size: 0.45rem;
+    font-size: 0.5rem;
     display: inline-block;
     margin-left: 2px;
     position: absolute;
@@ -132,21 +157,102 @@ li>i{
 
 
 
-
-
-
-
-
 /*-------------------------------------------*/
 .container__main{
-    border: 1px solid var(--border-font-color);
     grid-area: main;
 }
+/*trabajamos en el aside-R*/
 .container__aside-right{
-    border: 1px solid var(--border-font-color);
     grid-area: aside-r;
+    display: flex;
+    flex-direction: column;
+    padding: 14px 10px 10px 10px;
 }
+.profile__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+
+}
+.profile__name{
+    font-size: 0.9rem;
+    color: var(--border-font-color);
+    cursor: pointer;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+.profile__item{
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 20;
+}
+.spliter{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+}
+.spliter-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.profile__image{
+    border-radius: 100%;
+}
+
+.profile__container i {
+    color: var(--border-font-color);
+    cursor: pointer;
+   
+}
+.spliter-2 > i {
+    outline: 1px solid var(--border-font-color);
+    padding: 6px;
+    border-radius: 100%;
+    width: max-content;
+    height: max-content;
+    text-align: center;
+    font-size: 0.8rem;
+    position: relative;
+}
+#effect{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease-in-out;
+}
+#effect::after{
+    content: "";
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid #e6e6e3ef;
+    transition: transform 0.3s ease-out, opacity 0.45s ease-out;
+    transform: scale(0);
+    opacity: 0;
+    z-index: 10;
+}
+#effect:hover::after{
+    transform: scale(1);
+    opacity: 1;
+}
+#effect:hover{
+    background-color: #5e5d5dc4;
+}
+
+/*-------------------------------------------------*/
 .container__footer{
-    border: 1px solid var(--border-font-color);
     grid-area: footer;
 }
