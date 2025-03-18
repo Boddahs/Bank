@@ -1,0 +1,152 @@
+/*reseteo de cajas*/
+:root{
+    --background-color: black;
+    --container-color:#262626;
+    --border-font-color: #BFBFBD;
+    --font-color:white;
+    --svg-color: #E6FFA4;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*trabajamos el body*/
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+/*caja contenedora responsiva*/
+.container{
+    color: var(--font-color);
+    background: var(--container-color);
+    width: clamp( 25rem, 95vw , 1080px);
+    border-radius: 1px;
+    padding: 20px;
+    height:auto;
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 0.8fr;
+    grid-template-rows: 50px 1fr 1fr;
+    grid-template-areas: 
+        "aside-l header header"
+        "aside-l main aside-r"
+        "aside-l footer aside-r";
+        height: 100vh;
+}
+.container__header{
+    border: 1px solid var(--border-font-color);
+    grid-area: header;
+
+} 
+/*------------------------------------------*/
+/*trbajamos en el aside-L*/
+.container__aside-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 30px;
+    min-width: 120px;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--border-font-color);
+    grid-area: aside-l;
+    padding: 10px;
+}
+/*ajustamos el logo del banco*/
+svg{
+    padding-top: 4px;
+    width: 25px;
+    color: var(--svg-color);
+}
+/*ajustamos el titulo del banco*/
+.logo > h2{
+    font-size: 0.8rem;
+}
+h2>span{
+    color: var(--border-font-color);
+}
+.logo{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-font-color);
+    max-width: 110px;
+}
+/*trabajamos en el Nav izquierdo*/
+.list{
+    color: var(--border-font-color);
+    font-size: 0.8rem;
+}
+.list  ul  li{
+    list-style: none;
+    cursor: pointer;
+    width: fit-content;
+    transition: transform 0.3s;
+}
+.list ul li:hover{
+    color: var(--font-color);
+    transform: translateX(8px);
+}
+li>i{
+    width: 20px;
+    height: 20px;
+}
+.list__box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+/*derechos de autor*/
+.rights{
+    margin-top: auto;
+    color: var(--border-font-color);
+    display: flex;
+    flex-direction: column;
+    max-width: 110px;
+    gap: 8px;
+}
+.title-2{
+    color: var(--font-color);
+    font-size: 0.9rem;
+    position: relative;
+    border-bottom: 1px solid var(--border-font-color);
+    padding-bottom: 14px;
+}
+.title-2::after{
+    content: "\f1f9";
+    width: 20px;
+    font-family: "Font Awesome 6 Free";
+    font-size: 0.45rem;
+    display: inline-block;
+    margin-left: 2px;
+    position: absolute;
+    top: 6px;
+}
+.rights h3{
+    font-size: .45rem;
+}
+
+
+
+
+
+
+
+
+/*-------------------------------------------*/
+.container__main{
+    border: 1px solid var(--border-font-color);
+    grid-area: main;
+}
+.container__aside-right{
+    border: 1px solid var(--border-font-color);
+    grid-area: aside-r;
+}
+.container__footer{
+    border: 1px solid var(--border-font-color);
+    grid-area: footer;
+}
