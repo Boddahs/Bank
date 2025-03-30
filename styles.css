@@ -734,3 +734,11 @@ li>i{
         width: 15vw;
     }
 }
+@media (max-width:500px){
+    .cards__container{
+        flex-direction: column;
+    }
+    .container{
+        padding: 5px;
+    }
+}
